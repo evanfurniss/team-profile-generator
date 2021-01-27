@@ -21,4 +21,4 @@ let managerQuestions = [
     }
 ]
 
-// module.exports = 
+// module.exports = managerQuestions;
