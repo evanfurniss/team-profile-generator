@@ -7,28 +7,6 @@ const Engineer = require("./util/engineer")
 const Intern = require("./util/intern")
 
 let teamArr = [];
-let managerQs = [
-  {
-    type: "input",
-    message: "Enter manager's name",
-    name: "name"
-  },
-  {
-    type: "input",
-    message: "Enter manager's email",
-    name: "email"
-  },
-  {
-    type: "input",
-    message: "Enter manager's ID",
-    name: "id"
-  },
-  {
-    type: "number",
-    message: "Enter manager's office number",
-    name: "officeNum"
-  }
-];
 
 init();
 
@@ -49,7 +27,28 @@ function init() {
 
 function addManager(){
   inquirer
-    .prompt(managerQs)
+    .prompt([
+      {
+        type: "input",
+        message: "Enter manager's name",
+        name: "name"
+      },
+      {
+        type: "input",
+        message: "Enter manager's email",
+        name: "email"
+      },
+      {
+        type: "input",
+        message: "Enter manager's ID",
+        name: "id"
+      },
+      {
+        type: "number",
+        message: "Enter manager's office number",
+        name: "officeNum"
+      }
+    ])
     .then( (data) => {
       const name = data.name
       const email = data.email
@@ -96,13 +95,13 @@ function addEngineer(){
       },
       {
         type: "input",
-        message: "Enter employee's ID",
-        name: "id"
+        message: "Enter employee's email address",
+        name: "email"
       },
       {
         type: "input",
-        message: "Enter employee's email address",
-        name: "email"
+        message: "Enter employee's ID",
+        name: "id"
       },
       {
         type: "input",
@@ -132,13 +131,13 @@ function addIntern(){
       },
       {
         type: "input",
-        message: "Enter intern's ID",
-        name: "id"
+        message: "Enter intern's email address",
+        name: "email"
       },
       {
         type: "input",
-        message: "Enter intern's email address",
-        name: "email"
+        message: "Enter intern's ID",
+        name: "id"
       },
       {
         type: "input",
