@@ -18,6 +18,9 @@ class Manager extends Employee {
     getRole(){
         return this.title;
     };
+    getOfficeNum(){
+        return this.officeNum;
+    }
 }
 
 module.exports = Manager;

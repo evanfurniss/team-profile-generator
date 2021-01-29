@@ -5,7 +5,7 @@ const Employee = require("./util/employee")
 const Manager = require("./util/manager")
 const Engineer = require("./util/engineer")
 const Intern = require("./util/intern")
-const generateTeam = team => require("./util/page-template")
+const team = require("./util/page-template")
 
 let teamArr = [];
 
@@ -81,7 +81,7 @@ function addTeamMember() {
           addIntern();
           break;
         case "No more to add":
-          generateTeam(teamArr);
+          writeToFile();
       }
     })
 }
@@ -155,15 +155,16 @@ function addIntern(){
 
       const intern = new Intern(name,email, id, school);
       teamArr.push(intern);
+      console.log(intern.getSchool());
       addTeamMember();
     })
 }
 
-// function writeToFile(data) {
-//   fs.writeFile("teamRoster.html", generateTeam(data), err => {
-//     if (err) {
-//       console.log(err);
-//     }
-//     console.log("Success!");
-//   })
-// }
+function writeToFile() {
+  fs.writeFile("teamRoster.html", team(teamArr), err => {
+    if (err) {
+      console.log(err);
+    }
+    console.log("Success!");
+  })
+}
