@@ -1,10 +1,13 @@
 # Team Profile Generator
 
+
+
 ## Table of Contents
 * [Installation](#installation)
 * [Description](#discription)
 * [Contribution](#contribution)
 * [Contact](#contact)
+
 
 ## Installation
 
@@ -31,12 +34,21 @@ The team profile generator project allows teams to create an HTML file that disp
 
 The technology behind it uses class constructors, a dynamically created HTML file, and node functions. The NPM inquirer was used parallel with node.js to retrieve user input without needing an html interface. When the user runs the phrase 'start' in the integrated terminal for that file, inquirer will prompt them with questions. Functions will gather necessary information and send that information to the necessary reciever. The manager class is the first to be created, and only one is created. A new function triggers when that newly constructed object is pushed to an array that holds all employees. The user will be asked if more team members need to be added and run through the creation function for that type of employee. Otherwise, fs.writeFile allows us to create a new HTML file created using the information passed into it by 'inquirer'.
 
+
 ## Contribution
 
 If you think you can add functionality to this project, see a bug, or have styling suggestions, please feel free to message me through one of my contact options listed below.
 
-## Contact
+
+
+# Contact
 
 * Email: evanfurniss@gmail.com
 * LinkedIn: https://www.linkedin.com/in/evan-furniss-03894b1bb/
 * GitHub: https://github.com/evanfurniss
+
+## Demo
+
+Check out the file demo video here: https://drive.google.com/file/d/17TjyWUBH7aeWmtiy82z2ow4l65PhWrWe/view
+
+![GIF version of the full video](./util/gif/demo.gif)
