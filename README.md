@@ -49,6 +49,6 @@ If you think you can add functionality to this project, see a bug, or have styli
 
 ## Demo
 
-Check out the file demo video here: https://drive.google.com/file/d/17TjyWUBH7aeWmtiy82z2ow4l65PhWrWe/view
+Check out the file demo video here: https://drive.google.com/file/d/1i2ZB9bgCHfuWXZCr2u5ERicx9AWgo_ak/view
 
 ![GIF version of the full video](./util/gif/demo.gif)
