@@ -10,21 +10,6 @@ let teamArr = [];
 
 addManager();
 
-// function init() {
-//   inquirer
-//     .prompt([
-//       {
-//         type: "input",
-//         message: "Please enter a name for your new team",
-//         name: "teamName"
-//       }
-//     ])
-//     .then( (data) => {
-//       teamArr.push(data.teamName);
-//       addManager();
-//     })
-// };
-
 function addManager(){
   inquirer
     .prompt([
