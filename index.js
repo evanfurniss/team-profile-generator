@@ -5,6 +5,7 @@ const Employee = require("./util/employee")
 const Manager = require("./util/manager")
 const Engineer = require("./util/engineer")
 const Intern = require("./util/intern")
+const generateTeam = require("./util/page-template")
 
 let teamArr = [];
 
@@ -80,7 +81,7 @@ function addTeamMember() {
           addIntern();
           break;
         case "No more to add":
-          createRoster();
+          generateTeam(teamArr);
       }
     })
 }
@@ -157,6 +158,11 @@ function addIntern(){
     })
 }
 
-function createRoster(){
-  
-}
+// function writeToFile(data) {
+//   fs.writeFile("teamRoster.html", generateTeam(data), err => {
+//     if (err) {
+//       console.log(err);
+//     }
+//     console.log("Success!");
+//   })
+// }
