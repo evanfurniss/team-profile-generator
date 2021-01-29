@@ -5,7 +5,7 @@ const Employee = require("./util/employee")
 const Manager = require("./util/manager")
 const Engineer = require("./util/engineer")
 const Intern = require("./util/intern")
-const generateTeam = require("./util/page-template")
+const generateTeam = team => require("./util/page-template")
 
 let teamArr = [];
 
@@ -56,8 +56,8 @@ function addManager(){
       const id = data.id
       const officeNum = data.officeNum
 
-      const genManager = new Manager(name, email, id, officeNum);
-      teamArr.push(genManager)
+      const manager = new Manager(name, email, id, officeNum);
+      teamArr.push(manager)
       addTeamMember();
     })
 };
@@ -115,6 +115,7 @@ function addEngineer(){
       const email = data.email
       const id = data.id
       const github = data.github
+      
       
       const engineer = new Engineer(name, email, id, github);
       teamArr.push(engineer);
