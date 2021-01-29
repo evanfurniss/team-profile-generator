@@ -1,30 +1,29 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
 
-const Employee = require("./util/employee")
 const Manager = require("./util/manager")
 const Engineer = require("./util/engineer")
 const Intern = require("./util/intern")
-const team = require("./util/page-template")
+const generateHTML = require("./util/page-template")
 
 let teamArr = [];
 
-init();
+addManager();
 
-function init() {
-  inquirer
-    .prompt([
-      {
-        type: "input",
-        message: "Please enter a name for your new team",
-        name: "teamName"
-      }
-    ])
-    .then( (data) => {
-      teamArr.push(data.teamName);
-      addManager();
-    })
-};
+// function init() {
+//   inquirer
+//     .prompt([
+//       {
+//         type: "input",
+//         message: "Please enter a name for your new team",
+//         name: "teamName"
+//       }
+//     ])
+//     .then( (data) => {
+//       teamArr.push(data.teamName);
+//       addManager();
+//     })
+// };
 
 function addManager(){
   inquirer
@@ -36,27 +35,27 @@ function addManager(){
       },
       {
         type: "input",
-        message: "Enter manager's email",
-        name: "email"
-      },
-      {
-        type: "input",
         message: "Enter manager's ID",
         name: "id"
       },
       {
+        type: "input",
+        message: "Enter manager's email",
+        name: "email"
+      },
+      {
         type: "number",
         message: "Enter manager's office number",
-        name: "officeNum"
+        name: "officeNumber"
       }
     ])
     .then( (data) => {
       const name = data.name
-      const email = data.email
       const id = data.id
-      const officeNum = data.officeNum
+      const email = data.email
+      const officeNumber = data.officeNumber
 
-      const manager = new Manager(name, email, id, officeNum);
+      const manager = new Manager(name, id, email, officeNumber);
       teamArr.push(manager)
       addTeamMember();
     })
@@ -82,6 +81,7 @@ function addTeamMember() {
           break;
         case "No more to add":
           writeToFile();
+          break;
       }
     })
 }
@@ -112,12 +112,11 @@ function addEngineer(){
     ])
     .then((data) => {
       const name = data.name
-      const email = data.email
       const id = data.id
+      const email = data.email
       const github = data.github
       
-      
-      const engineer = new Engineer(name, email, id, github);
+      const engineer = new Engineer(name, id, email, github);
       teamArr.push(engineer);
       addTeamMember();
     })
@@ -153,15 +152,14 @@ function addIntern(){
       const id = data.id
       const school = data.school
 
-      const intern = new Intern(name,email, id, school);
+      const intern = new Intern(name, id, email, school);
       teamArr.push(intern);
-      console.log(intern.getSchool());
       addTeamMember();
     })
 }
 
 function writeToFile() {
-  fs.writeFile("teamRoster.html", team(teamArr), err => {
+  fs.writeFile("teamRoster.html", generateHTML(teamArr), err => {
     if (err) {
       console.log(err);
     }
